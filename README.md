@@ -1,6 +1,6 @@
 # Mandla Tree Feller
 
-One page, mobile first preview site for a tree felling and landscaping company in Randburg.
+One page, mobile first preview site for a tree felling and landscaping business in Johannesburg.
 Static HTML, no build step. Open `index.html` in a browser.
 
-Placeholders to replace before launch: photos (hotlinked from a reference site), trust claims, and contact details.
+Duplicated from `best-tree-felling-landscaping`. To confirm with the client before launch: working hours, the list of areas served, and the services offered. Photography is from Pexels.
