@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mandla Tree Feller | Randburg</title>
+<meta name="description" content="Tree felling, pruning, stump grinding and clearing in Randburg and Joburg North. Mon-Fri 7:30 to 16:30. Call +27 76 534 2661.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<style>
+  /* Tokens: one green accent family on warm whites. Shape rule: cards/images 20px, buttons/chips/inputs-as-pills 999px (inputs 14px). */
+  :root{
+    --paper:#fbfaf6;
+    --paper-2:#f3f1e8;
+    --moss-50:#e8efe4;
+    --moss-200:#c3d4bb;
+    --moss-500:#4f7a52;
+    --moss-700:#2d5233;
+    --moss-900:#16291b;
+    --ink:#1d2a20;
+    --muted:#55645a;
+    --line:#d9d6cb;
+    --r-card:20px;
+    --r-pill:999px;
+    --r-input:14px;
+    --bar-h:68px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    /* images are hotlinked from the reference site for the preview; replace with client photos */
+    --img:"https://darrenrosbon.github.io/sable-tree-felling/img/";
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{font-family:"Outfit",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:var(--bar-h)}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+  h1,h2,h3{letter-spacing:-.02em;line-height:1.08;font-weight:600}
+  h2{font-size:clamp(1.9rem,6vw,3rem);color:var(--moss-900)}
+  p{max-width:62ch}
+  :focus-visible{outline:3px solid var(--moss-500);outline-offset:3px}
+
+  .btn{display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;padding:.95rem 1.5rem;border-radius:var(--r-pill);font:600 1rem/1 "Outfit",sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background-color .25s,color .25s}
+  .btn:active{transform:scale(.97)}
+  .btn i{font-size:1.2rem}
+  .btn-solid{background:var(--paper);color:var(--moss-900)}
+  .btn-solid:hover{background:var(--moss-50)}
+  .btn-green{background:var(--moss-700);color:var(--paper)}
+  .btn-green:hover{background:var(--moss-900)}
+  .btn-line{border-color:rgba(251,250,246,.8);color:var(--paper);background:rgba(22,41,27,.4)}
+  .btn-line:hover{background:rgba(251,250,246,.18)}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto 0;z-index:30;transition:background-color .3s,box-shadow .3s}
+  header.solid{background:var(--paper);box-shadow:0 1px 0 rgba(22,41,27,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:700;font-size:1.15rem;color:var(--paper);letter-spacing:-.01em}
+  .logo i{font-size:1.7rem}
+  header.solid .logo,header.solid .burger{color:var(--moss-900)}
+  .burger{background:none;border:0;color:var(--paper);font-size:2rem;cursor:pointer;display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r-pill)}
+  .links{position:fixed;inset:0;z-index:40;background:var(--moss-900);display:flex;flex-direction:column;justify-content:center;gap:.4rem;padding:0 28px;transform:translateY(-100%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s .45s}
+  .links.open{transform:none;visibility:visible;transition:transform .45s var(--ease)}
+  .links a{color:var(--paper);text-decoration:none;font-size:2.1rem;font-weight:600;letter-spacing:-.02em;padding:.3rem 0}
+  .links .close{position:absolute;top:8px;right:20px;font-size:2rem;background:none;border:0;color:var(--paper);width:48px;height:48px;cursor:pointer}
+  .links .btn{margin-top:1.4rem;font-size:1.1rem;align-self:flex-start}
+  .links .btn-solid{color:var(--moss-900)}
+
+  /* hero: image first, text over it */
+  .hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;color:var(--paper);overflow:hidden;background:var(--moss-900)}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 40%;animation:settle 1.8s var(--ease) both}
+  @keyframes settle{from{transform:scale(1.08)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,27,.55) 0%,rgba(22,41,27,.05) 28%,rgba(22,41,27,.5) 62%,rgba(22,41,27,.94) 100%)}
+  .hero .wrap{position:relative;z-index:2;padding:110px 0 96px}
+  .hero h1{font-size:clamp(2.5rem,10.5vw,5.2rem);max-width:12ch;margin-bottom:1rem}
+  .hero p{font-size:1.12rem;color:#f0f2e8;max-width:36ch;margin-bottom:1.7rem}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:.8rem}
+
+  /* trust strip */
+  .trust{border-bottom:1px solid var(--line)}
+  .trust .wrap{display:grid;gap:.9rem;padding:22px 0}
+  .trust div{display:flex;gap:.8rem;align-items:center;font-weight:500}
+  .trust i{font-size:1.6rem;color:var(--moss-700)}
+
+  section.s{padding:84px 0}
+  .head{margin-bottom:2.2rem}
+  .head p{margin-top:.9rem;color:var(--muted);font-size:1.08rem}
+
+  /* services bento: 5 items, 5 cells */
+  .grid{display:grid;gap:14px;grid-template-columns:1fr}
+  .cell{position:relative;border-radius:var(--r-card);overflow:hidden;min-height:250px;padding:1.6rem;display:flex;flex-direction:column;justify-content:flex-end}
+  .cell h3{font-size:1.45rem;margin-bottom:.4rem}
+  .cell p{font-size:1rem}
+  .cell i.ph{font-size:2rem;margin-bottom:auto}
+  .cell.photo{color:var(--paper)}
+  .cell.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .cell.photo:hover img{transform:scale(1.04)}
+  .cell.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,27,0) 20%,rgba(22,41,27,.9))}
+  .cell.photo > *:not(img){position:relative;z-index:2}
+  .cell.tint{background:var(--moss-700);color:var(--paper)}
+
+  /* how we work */
+  .about{background:var(--paper-2)}
+  .split{display:grid;gap:2rem}
+  .pic{border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/5;background:var(--moss-200)}
+  .pic img{width:100%;height:100%;object-fit:cover}
+  .about h2{margin-bottom:1rem}
+  .about .lead{color:var(--muted);font-size:1.08rem;margin-bottom:1.8rem}
+  .steps{display:grid;gap:1.2rem;list-style:none;padding:0}
+  .steps li{display:flex;gap:.9rem}
+  .steps i{font-size:1.6rem;color:var(--moss-700);margin-top:2px;flex:none}
+  .steps b{display:block;font-weight:600}
+  .steps span{color:var(--muted)}
+
+  /* areas */
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem}
+  .chip{padding:.6rem 1.1rem;border-radius:var(--r-pill);background:var(--moss-50);color:var(--moss-900);font-weight:500}
+
+  /* contact */
+  .contact-grid{display:grid;gap:2rem}
+  .contact h2{margin-bottom:1rem}
+  .contact .lead{color:var(--muted);font-size:1.08rem;margin-bottom:1.6rem}
+  .contact .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2rem}
+  .hours{display:grid;gap:.5rem;font-weight:500}
+  .hours div{display:flex;gap:.8rem;align-items:center}
+  .hours i{font-size:1.4rem;color:var(--moss-700)}
+  form{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:1.5rem;display:grid;gap:1rem}
+  form h3{font-size:1.4rem;color:var(--moss-900)}
+  label{display:grid;gap:.4rem;font-weight:500;color:var(--moss-900);font-size:.95rem}
+  input,select,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid #8b9a8e;border-radius:var(--r-input);padding:.8rem .9rem;width:100%}
+  input:focus,select:focus,textarea:focus{outline:3px solid var(--moss-200);border-color:var(--moss-700)}
+  textarea{min-height:96px;resize:vertical}
+  .done{display:none;background:var(--moss-50);border-radius:var(--r-input);padding:1rem;color:var(--moss-900);font-weight:500}
+  form.sent .done{display:block}
+  form.sent button{display:none}
+  .done a{color:var(--moss-700);font-weight:600}
+
+  footer{background:var(--moss-900);color:#cfd9c8;padding:40px 0 48px;font-size:.95rem}
+  footer .wrap{display:flex;flex-direction:column;gap:.4rem}
+  footer strong{color:var(--paper);font-size:1.1rem}
+
+  .sticky{position:fixed;inset:auto 0 0 0;z-index:35;height:var(--bar-h);display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--paper);box-shadow:0 -1px 0 rgba(22,41,27,.14)}
+  .sticky .btn{justify-content:center;padding:.8rem 1rem}
+  /* sticky bar already carries Call and WhatsApp on mobile */
+  @media (max-width:899px){
+    .hide-m{display:none!important}
+    .hero .btn-line{background:var(--paper);color:var(--moss-900);border-color:transparent}
+    .contact .lead{margin-bottom:0}
+  }
+  .sticky .wa{background:var(--moss-50);color:var(--moss-900)}
+
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .hero img{animation:none}
+    .cell.photo img,.btn,.links{transition:none}
+  }
+
+  @media (min-width:900px){
+    body{padding-bottom:0}
+    .sticky,.burger,.links .close{display:none}
+    .nav{height:72px}
+    .links{position:static;transform:none;visibility:visible;background:none;flex-direction:row;align-items:center;padding:0;gap:1.8rem;inset:auto}
+    .links a{font-size:1rem;font-weight:500;padding:0}
+    header.solid .links a{color:var(--moss-900)}
+    .links .btn{margin:0;font-size:1rem;padding:.7rem 1.2rem}
+    header.solid .links .btn-solid{background:var(--moss-700);color:var(--paper)}
+    section.s{padding:120px 0}
+    .hero .wrap{padding-bottom:80px}
+    .trust .wrap{grid-template-columns:repeat(3,1fr)}
+    .grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:320px}
+    .cell.wide{grid-column:span 2}
+    .split{grid-template-columns:5fr 6fr;gap:80px;align-items:center}
+    .pic{aspect-ratio:1/1.1}
+    .contact-grid{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    form{padding:2rem}
+    footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Mandla Tree Feller"><i class="ph ph-tree-evergreen"></i>Mandla Tree Feller</a>
+    <button class="burger" id="open" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i class="ph ph-list"></i></button>
+    <nav class="links" id="menu" aria-label="Main">
+      <button class="close" id="close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+      <a href="#services">Services</a>
+      <a href="#how">How we work</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-solid" href="tel:+27765342661"><i class="ph ph-phone"></i>Call us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="https://darrenrosbon.github.io/sable-tree-felling/img/crew.jpg" alt="Tree feller holding a chainsaw on a worksite among tall trees" fetchpriority="high">
+    <div class="wrap">
+      <h1>Trees down safely. Gardens left tidy.</h1>
+      <p>Tree felling, pruning and clearing for homes and businesses in and around Randburg.</p>
+      <div class="cta">
+        <a class="btn btn-solid hide-m" href="tel:+27765342661"><i class="ph ph-phone"></i>Call us</a>
+        <a class="btn btn-line" href="#contact">Get a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust claims below are sample copy until the client confirms them -->
+  <div class="trust">
+    <div class="wrap">
+      <div><i class="ph ph-hard-hat"></i>Trained climbers and ground crew</div>
+      <div><i class="ph ph-recycle"></i>All green waste removed</div>
+      <div><i class="ph ph-file-text"></i>Clear, written quotes</div>
+    </div>
+  </div>
+
+  <section class="s" id="services">
+    <div class="wrap">
+      <div class="head rv">
+        <h2>Every job, from one branch to a whole row of trees.</h2>
+      </div>
+      <div class="grid">
+        <article class="cell photo wide rv">
+          <img src="https://darrenrosbon.github.io/sable-tree-felling/img/chainsaw.jpg" alt="Chainsaw cutting a log" loading="lazy">
+          <h3>Tree felling and removal</h3>
+          <p>Controlled sectional felling for trees near houses, boundary walls, pools and power lines.</p>
+        </article>
+        <article class="cell photo rv">
+          <img src="https://darrenrosbon.github.io/sable-tree-felling/img/tree.jpg" alt="Pruning shears cutting a branch" loading="lazy">
+          <h3>Pruning and crown reduction</h3>
+          <p>Lighter, healthier trees that stay off the roof and gutters.</p>
+        </article>
+        <article class="cell photo rv">
+          <img src="https://darrenrosbon.github.io/sable-tree-felling/img/stump.jpg" alt="Old tree stump in a lawn" loading="lazy">
+          <h3>Stump grinding</h3>
+          <p>Ground below soil level so you can plant or pave over the spot.</p>
+        </article>
+        <article class="cell tint rv">
+          <i class="ph ph-cloud-lightning"></i>
+          <h3>Storm damage</h3>
+          <p>Fallen trees and broken limbs cleared so the driveway and gate work again.</p>
+        </article>
+        <article class="cell photo rv">
+          <img src="https://darrenrosbon.github.io/sable-tree-felling/img/logs.jpg" alt="Stack of cut firewood" loading="lazy">
+          <h3>Clearing and firewood</h3>
+          <p>Garden refuse taken away. Want the wood? We stack it for you.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s about" id="how">
+    <div class="wrap split">
+      <div class="pic rv">
+        <img src="https://darrenrosbon.github.io/sable-tree-felling/img/canopy.jpg" alt="Looking up into a healthy tree canopy" loading="lazy">
+      </div>
+      <div class="rv">
+        <h2>Careful going in, spotless going out.</h2>
+        <p class="lead">A small, local team. The person who quotes your job is on site on the day.</p>
+        <ul class="steps">
+          <li><i class="ph ph-footprints"></i><p><b>We walk the property with you</b><span>We agree exactly what goes and what stays.</span></p></li>
+          <li><i class="ph ph-shield-check"></i><p><b>Your garden is protected</b><span>Lawns, paving and beds are covered with boards and tarps.</span></p></li>
+          <li><i class="ph ph-fire"></i><p><b>Want the wood?</b><span>We cut it to braai or fireplace length and stack it.</span></p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="areas">
+    <div class="wrap">
+      <div class="head rv">
+        <h2>Randburg and Joburg North.</h2>
+        <p>If you are near Randburg, we will come to you. Further out, call and we will see what we can do.</p>
+      </div>
+      <div class="chips rv">
+        <span class="chip">Randburg</span><span class="chip">Ferndale</span><span class="chip">Blairgowrie</span>
+        <span class="chip">Northcliff</span><span class="chip">Linden</span><span class="chip">Cresta</span>
+        <span class="chip">Fontainebleau</span><span class="chip">Bryanston</span><span class="chip">Fourways</span>
+        <span class="chip">Sandton</span><span class="chip">Roodepoort</span><span class="chip">Honeydew</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="s contact" id="contact" style="padding-top:0">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <h2>Tell us about your tree.</h2>
+        <p class="lead">Send a photo on WhatsApp for a rough idea, or fill in the form and it opens as a WhatsApp message to us.</p>
+        <div class="cta hide-m">
+          <a class="btn btn-green" href="tel:+27765342661"><i class="ph ph-phone"></i>+27 76 534 2661</a>
+          <a class="btn" style="background:var(--moss-50);color:var(--moss-900)" href="https://wa.me/27765342661"><i class="ph ph-whatsapp-logo"></i>WhatsApp</a>
+        </div>
+        <div class="hours">
+          <div><i class="ph ph-clock"></i>Monday to Friday, 7:30 to 16:30</div>
+          <div><i class="ph ph-map-pin"></i>Randburg, Gauteng</div>
+        </div>
+      </div>
+
+      <form class="rv" id="quote">
+        <h3>Request a quote</h3>
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Suburb<input name="suburb" required></label>
+        <label>What do you need?
+          <select name="service">
+            <option>Tree felling and removal</option>
+            <option>Pruning or crown reduction</option>
+            <option>Stump grinding</option>
+            <option>Storm damage</option>
+            <option>Clearing and firewood</option>
+          </select>
+        </label>
+        <label>Details<textarea name="details"></textarea></label>
+        <button class="btn btn-green" type="submit" style="justify-content:center"><i class="ph ph-whatsapp-logo"></i>Send on WhatsApp</button>
+        <div class="done" role="status">WhatsApp should have opened with your request ready to send. <a href="#" id="again">Edit and resend</a></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Mandla Tree Feller</strong>
+    <span>Randburg, Gauteng. Mon to Fri, 7:30 to 16:30</span>
+    <span>&copy; 2026 Preview mockup</span>
+  </div>
+</footer>
+
+<div class="sticky" aria-label="Quick contact">
+  <a class="btn btn-green" href="tel:+27765342661"><i class="ph ph-phone"></i>Call us</a>
+  <a class="btn wa" href="https://wa.me/27765342661"><i class="ph ph-whatsapp-logo"></i>WhatsApp</a>
+</div>
+
+<script>
+  const menu = document.getElementById('menu'), openBtn = document.getElementById('open');
+  const setMenu = o => { menu.classList.toggle('open', o); openBtn.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; };
+  openBtn.onclick = () => setMenu(true);
+  document.getElementById('close').onclick = () => setMenu(false);
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
+
+  const header = document.querySelector('header');
+  const sentinel = Object.assign(document.createElement('div'), {style: 'position:absolute;top:60px;height:1px;width:1px'});
+  document.body.appendChild(sentinel);
+  new IntersectionObserver(([e]) => header.classList.toggle('solid', !e.isIntersecting)).observe(sentinel);
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  document.getElementById('again').onclick = e => { e.preventDefault(); document.getElementById('quote').classList.remove('sent'); };
+  document.getElementById('quote').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, v = n => f.elements[n].value.trim();
+    if (![...f.querySelectorAll('[required]')].every(i => i.value.trim())) { f.reportValidity?.(); return; }
+    const lines = [
+      'Hi Mandla Tree Feller, I would like a quote.',
+      '',
+      'Name: ' + v('name'),
+      'Phone: ' + v('phone'),
+      'Suburb: ' + v('suburb'),
+      'Service: ' + v('service')
+    ];
+    if (v('details')) lines.push('Details: ' + v('details'));
+    const url = 'https://wa.me/27765342661?text=' + encodeURIComponent(lines.join('\n'));
+    f.classList.add('sent');
+    if (!window.open(url, '_blank', 'noopener')) location.href = url;
+  });
+</script>
+</body>
+</html>
