@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Skymaster Tree Fellers | Pretoria</title>
-<meta name="description" content="Tree felling, pruning, stump removal and landscaping in Pretoria and surrounds. Free quotes, open 24 hours.">
+<meta name="description" content="Tree felling, pruning and stump removal in Pretoria and surrounds. Free quotes, open 24 hours.">
 <meta name="theme-color" content="#101a14">
 <link rel="preload" as="image" media="(max-width: 767px)" imagesrcset="img/hero-480.webp 480w, img/hero-800.webp 800w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="image" media="(min-width: 768px)" imagesrcset="img/hero-480.webp 480w, img/hero-800.webp 800w, img/hero-1200.webp 1200w" imagesizes="100vw" fetchpriority="high">
@@ -187,6 +187,7 @@ main > section.facts { padding-bottom: 8px; }
 
 /* ---------- Services ---------- */
 .services-grid { display: grid; gap: 20px; margin-top: 36px; }
+@media (min-width: 768px) { .services-grid .svc { flex-direction: row; } .services-grid .media { width: 45%; aspect-ratio: auto; min-height: 280px; } }
 .svc { position: relative; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden; background: var(--paper-2); border: 1px solid var(--line); }
 .media { aspect-ratio: 4 / 3; flex: none; overflow: hidden; background-size: cover; background-position: center; }
 .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -200,6 +201,21 @@ main > section.facts { padding-bottom: 8px; }
   font-weight: 500; font-size: .95rem;
 }
 .chips .ico { color: var(--forest); }
+
+
+/* ---------- Reviews ---------- */
+.reviews-grid { display: grid; gap: 20px; margin-top: 36px; }
+.review { background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 22px 26px; display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow); }
+.rev-head { display: flex; align-items: center; gap: 12px; }
+.avatar { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--leaf); color: var(--on-forest); display: grid; place-items: center; font: 800 1rem/1 "Bricolage Grotesque", sans-serif; letter-spacing: .02em; }
+.rev-who { display: grid; gap: 2px; min-width: 0; line-height: 1.25; }
+.rev-who b { font: 700 1.05rem/1.25 "Bricolage Grotesque", sans-serif; }
+.rev-who span { font-size: .85rem; color: var(--ink-soft); }
+.g-mark { flex: none; margin-left: auto; width: 22px; height: 22px; }
+.stars { color: #f6b81a; font-size: 1.15rem; letter-spacing: .1em; line-height: 1; }
+.review blockquote { margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--ink); }
+.reviews-link { margin-top: 28px; }
+@media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------- Process ---------- */
 main > section.section.process { position: relative; isolation: isolate; overflow: hidden; color: var(--ink); padding-block: 128px 144px; }
@@ -357,7 +373,7 @@ footer ul li { padding: 5px 0; }
   .facts li { border-bottom: 0; padding: 26px 28px; }
   .facts li:first-child { padding-left: 0; }
   .facts li + li { border-left: 1px solid rgba(251, 249, 244, .14); }
-  .services-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  
   .media { aspect-ratio: 16 / 10; }
   .svc-body { padding: 28px 28px 32px; }
   .gallery { grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(220px, 26vw, 320px); gap: 14px; }
@@ -408,7 +424,7 @@ footer ul li { padding: 5px 0; }
     </a>
     <nav class="nav-desktop" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#work">Our work</a>
+      <a href="#reviews">Reviews</a>
       <a href="#areas">Areas</a>
       <a href="#quote">Quote</a>
     </nav>
@@ -421,7 +437,7 @@ footer ul li { padding: 5px 0; }
 
 <nav class="nav-mobile" id="menu" aria-label="Mobile">
   <a class="link" href="#services">Services <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-  <a class="link" href="#work">Our work <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+  <a class="link" href="#reviews">Reviews <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
   <a class="link" href="#areas">Areas and hours <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
   <a class="link" href="#quote">Quote <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
   <a class="btn btn-solid" href="tel:+27840479562"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call 084 047 9562</a>
@@ -437,7 +453,7 @@ footer ul li { padding: 5px 0; }
     </picture>
     <div class="wrap hero-in">
       <h1 id="hero-title">Skymaster Tree Fellers</h1>
-      <p>Tree felling, pruning and garden work across Pretoria. Message us for a quote.</p>
+      <p>Tree felling, pruning and stump removal across Pretoria. Message us for a quote.</p>
       <div class="hero-cta">
         <a class="btn btn-light" href="#quote"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp-logo"/></svg>Get a free quote</a>
         <a class="btn btn-outline" href="tel:+27840479562"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call 084 047 9562</a>
@@ -468,8 +484,8 @@ footer ul li { padding: 5px 0; }
   <!-- Services -->
   <section class="section" id="services">
     <div class="wrap">
-      <h2 class="reveal">Tree work and garden care</h2>
-      <p class="lead reveal">From felling and stump removal to lawns and landscaping, all from one team.</p>
+      <h2 class="reveal">Tree work</h2>
+      <p class="lead reveal">Safe, professional tree felling and removal.</p>
 
       <div class="services-grid">
         <article class="svc reveal">
@@ -487,21 +503,6 @@ footer ul li { padding: 5px 0; }
           </div>
         </article>
 
-        <article class="svc reveal">
-          <div class="media ph" style="background-image:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JQAAJQQEL3Q3CinA+AP7YTBZuhMrg4+xlstz4C5vVTzbGaPGN1uRznsrU6l9EoBa+u2/o7hT7fQHiin76m3HutM4+UR7IjH3HRfTOnbmsGvMitkRIG5Q0AAA=)"><img class="img-fade" decoding="async" loading="lazy" src="img/garden-800.webp" srcset="img/garden-480.webp 480w, img/garden-800.webp 800w, img/garden-1100.webp 1100w" sizes="(min-width: 768px) 50vw, 100vw" width="2000" height="1333" alt="Gardener trimming a hedge in a sunny garden"></div>
-          <div class="svc-body">
-            <h3>Garden and landscaping</h3>
-            <p>Regular lawn and hedge maintenance, or a full landscaping project.</p>
-            <ul class="chips">
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lawn mowing</li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Hedge trimming</li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Garden maintenance</li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Planting and turf</li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Landscaping and design</li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Bush clearing</li>
-            </ul>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -531,18 +532,41 @@ footer ul li { padding: 5px 0; }
     </div>
   </section>
 
-  <!-- Work -->
-  <section class="section" id="work">
+  <!-- Reviews -->
+  <section class="section" id="reviews">
     <div class="wrap">
-      <h2 class="reveal">Our work</h2>
-      <p class="lead reveal">Examples of the jobs we take on.</p>
-      <div class="gallery">
-        <figure class="wide reveal ph" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JagCdMoAB/X+YZjZrMAD+QQhHU35S5B0yosHtheNuUhfhQCAdXBZw1Nvy4y+3Ek/bsLgXNO/70xic7ZBKHf2OJVys3u++AAA=)"><img class="img-fade" loading="lazy" decoding="async" src="img/work-park-800.webp" srcset="img/work-park-480.webp 480w, img/work-park-800.webp 800w, img/work-park-1200.webp 1200w" sizes="(min-width: 768px) 66vw, 100vw" width="2000" height="1250" alt="Crew maintaining a park lawn and edges"></figure>
-        <figure class="reveal ph" style="background-image:url(data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JQBOmUABoM1NJUXUruWMsAP7DmxTry9Sj6KTcBuJBZ9fYUKlKNiAcqjFj6UTQISbiGYy+2ZDxejLR3r9yYg4bCjADMoYlWDnkEp68Nla1ZAAA)"><img class="img-fade" loading="lazy" decoding="async" src="img/work-prune-540.webp" srcset="img/work-prune-360.webp 360w, img/work-prune-540.webp 540w, img/work-prune-800.webp 800w" sizes="(min-width: 768px) 33vw, 50vw" width="2000" height="1125" alt="Worker pruning branches against a blue sky"></figure>
-        <figure class="reveal ph" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JYgAAUBL4ef40MgMc4AD6Kh6arod6nPdYlfFVxLbBXQSgF/9be/9D++jW3/psTg224UWniorTDFWMnTsC2z0h/e63AG4OAAA=)"><img class="img-fade" loading="lazy" decoding="async" src="img/work-hedge-540.webp" srcset="img/work-hedge-360.webp 360w, img/work-hedge-540.webp 540w, img/work-hedge-800.webp 800w" sizes="(min-width: 768px) 33vw, 50vw" width="2000" height="1333" alt="Gardener trimming a row of conifers"></figure>
-        <figure class="reveal ph" style="background-image:url(data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAACwBQCdASoUABQAPu1sq1EppaOiqAqpMB2JagCxHuN1ANlqgAMzEFOBhpuuEj1YoI/4LC20A8AA/uoxs+WtDOwrZvuiEcdch/ZgskrZtL7IxmtweQ41b63Zj1U/L/NzgZBvMjZaYZTuGrnmPGGa/Jd0z37RV3ZFtIEAEtTja1wJ5ZeCcenmHceh6CC38sYyR/vrhbADNX7aOpnSuFO+AFBDnjra+4Zkq4TAAA==)"><img class="img-fade" loading="lazy" decoding="async" src="img/work-trim-540.webp" srcset="img/work-trim-360.webp 360w, img/work-trim-540.webp 540w, img/work-trim-800.webp 800w" sizes="(min-width: 768px) 33vw, 50vw" width="2000" height="2000" alt="Worker using a string trimmer on the edge of a garden"></figure>
-        <figure class="reveal ph" style="background-image:url(data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JZACsLwAA/cIcFO9GGAD9+kwxE1y/amFr8eZE9uvSM53zPJVnWGqva8XseGOdYgd8ZgdHVUccQc84B9GxcMhT8FPmdSeOCOcHq+0/3TLbPAAA)"><img class="img-fade" loading="lazy" decoding="async" src="img/work-nursery-540.webp" srcset="img/work-nursery-360.webp 360w, img/work-nursery-540.webp 540w, img/work-nursery-800.webp 800w" sizes="(min-width: 768px) 33vw, 50vw" width="2000" height="1333" alt="Gardener standing among well kept trees in a nursery"></figure>
+      <h2 class="reveal">Reviews</h2>
+      <p class="lead reveal">Rated 5.0 from 18 reviews on Google.</p>
+      <div class="reviews-grid">
+        <article class="review reveal">
+          <header class="rev-head">
+            <span class="avatar" aria-hidden="true">JJ</span>
+            <div class="rev-who"><b>Juliet Julius</b><span>Google review</span></div>
+            <svg class="g-mark" viewBox="0 0 24 24" aria-label="Google"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.94-2.91l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29a7.2 7.2 0 0 1 0-4.58v-3.1H1.3a12 12 0 0 0 0 10.78l3.99-3.1z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.61 4.58 1.8l3.43-3.43C17.94 1.19 15.24 0 12 0A12 12 0 0 0 1.3 6.61l3.99 3.1C6.23 6.87 8.88 4.76 12 4.76z"/></svg>
+          </header>
+          <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>They deliver safe, fast and professional tree felling service.</blockquote>
+        </article>
+        <article class="review reveal">
+          <header class="rev-head">
+            <span class="avatar" aria-hidden="true">SM</span>
+            <div class="rev-who"><b>Stanford Muhomba</b><span>Local Guide &middot; 113 reviews</span></div>
+            <svg class="g-mark" viewBox="0 0 24 24" aria-label="Google"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.94-2.91l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29a7.2 7.2 0 0 1 0-4.58v-3.1H1.3a12 12 0 0 0 0 10.78l3.99-3.1z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.61 4.58 1.8l3.43-3.43C17.94 1.19 15.24 0 12 0A12 12 0 0 0 1.3 6.61l3.99 3.1C6.23 6.87 8.88 4.76 12 4.76z"/></svg>
+          </header>
+          <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>Very professional and right on time. Thank you lNyoni tree fellers.</blockquote>
+        </article>
+        <article class="review reveal">
+          <header class="rev-head">
+            <span class="avatar" aria-hidden="true">IN</span>
+            <div class="rev-who"><b>Irene Nyangumbe</b><span>Google review</span></div>
+            <svg class="g-mark" viewBox="0 0 24 24" aria-label="Google"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.94-2.91l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29a7.2 7.2 0 0 1 0-4.58v-3.1H1.3a12 12 0 0 0 0 10.78l3.99-3.1z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.61 4.58 1.8l3.43-3.43C17.94 1.19 15.24 0 12 0A12 12 0 0 0 1.3 6.61l3.99 3.1C6.23 6.87 8.88 4.76 12 4.76z"/></svg>
+          </header>
+          <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>Outstanding service from lnyoni tree felling.</blockquote>
+        </article>
       </div>
+      <a class="btn btn-solid reviews-link" href="https://www.google.com/maps/place/?q=place_id:ChIJAw0BxMxflR4RSXkLb1OlW1M" target="_blank" rel="noopener">See all reviews on Google<svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
     </div>
   </section>
 
@@ -612,9 +636,7 @@ footer ul li { padding: 5px 0; }
                   <option>Pruning and trimming</option>
                   <option>Stump removal</option>
                   <option>Storm damage clean-up</option>
-                  <option>Garden maintenance</option>
-                  <option>Landscaping</option>
-                  <option>Bush clearing and refuse removal</option>
+                  <option>Wood and refuse removal</option>
                   <option>Something else</option>
                 </select>
                 <span class="err">Please choose a service.</span>
@@ -642,7 +664,7 @@ footer ul li { padding: 5px 0; }
           <img class="brand-icon" src="favicon.svg" alt="" width="40" height="40">
       <span class="wordmark"><span class="wordmark-main"><em>Skymaster</em> Tree Fellers</span><span class="wordmark-sub">Pretoria</span></span>
         </a>
-        <p class="foot-blurb" style="margin-top:10px;max-width:34ch;font-size:.95rem">Tree felling and landscaping in Pretoria and surrounds.</p>
+        <p class="foot-blurb" style="margin-top:10px;max-width:34ch;font-size:.95rem">Tree felling in Pretoria and surrounds.</p>
       </div>
       <div class="foot-contact">
         <h3>Contact</h3>
@@ -655,7 +677,7 @@ footer ul li { padding: 5px 0; }
         <h3>Jump to</h3>
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#work">Our work</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#areas">Areas</a></li>
           <li><a href="#quote">Quote</a></li>
         </ul>
